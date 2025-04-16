@@ -1,3 +1,5 @@
+-- This plugin is deprecated! This is now done in the JAVA astro-community pack's init.lua file!
+
 local function get_jdk_version(java_exec)
   -- Normalize path (especially for Windows)
   if vim.fn.has "win32" == 1 then
@@ -40,8 +42,9 @@ return {
   "mfussenegger/nvim-jdtls",
   ft = { "java" },
   opts = function()
+    if true then return end
+    print "JDTLS override active!! (this is deprecated, so thats a bad thing)"
     local jdtls = require "jdtls"
-
     vim.notify("starting jdtls with custom configuration from plugins/jdtls-config.lua", vim.log.levels.INFO)
 
     -- detect project root
@@ -135,7 +138,7 @@ return {
         "-Declipse.product=org.eclipse.jdt.ls.core.product",
         "-Dlog.protocol=true",
         "-Dlog.level=ALL",
-        -- "-javaagent:" .. jdtls_files .. "/lombok.jar", --what in the hell is a lombok.jar? works either way afaik so i leave it in
+        "-javaagent:" .. jdtls_files .. "/lombok.jar", --what in the hell is a lombok.jar? works either way afaik so i leave it in
         "-Xms1g",
         "--add-modules=ALL-SYSTEM",
         "--add-opens",
@@ -188,13 +191,13 @@ return {
     }
 
     config.on_attach = function(client, bufnr)
-      print "On Attach ???"
+      print("JDTLS - On Attach (client: " .. client.name .. ")")
       -- require("me.lsp.conf").on_attach(client, bufnr, {
       --   server_side_fuzzy_completion = true,
       -- })
+      if true then return end
 
       -- jdtls.setup_dap { hotcodereplace = "auto" }
-      -- jdtls.setup.add_commands()
       vim.keymap.set(
         "n",
         "<A-o>",
@@ -202,11 +205,24 @@ return {
         { silent = true, buffer = bufnr, desc = "organize imports (remove unused also)" }
       )
 
-      -- vim.keymap.set("n", "<leader>df", jdtls.test_class, opts)
-      -- vim.keymap.set("n", "<leader>dn", jdtls.test_nearest_method, opts)
-      -- vim.keymap.set("n", "crv", jdtls.extract_variable, opts)
-      -- vim.keymap.set("v", "crm", [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], opts)
-      -- vim.keymap.set("n", "crc", jdtls.extract_constant, opts)
+      vim.keymap.set("n", "<leader>df", jdtls.test_class, { silent = true, buffer = bufnr, desc = "test class" })
+
+      vim.keymap.set(
+        "n",
+        "<leader>dn",
+        jdtls.test_nearest_method,
+        { silent = true, buffer = bufnr, desc = "test nearest method" }
+      )
+
+      vim.keymap.set("n", "crv", jdtls.extract_variable, { silent = true, buffer = bufnr, desc = "extract variable" })
+      vim.keymap.set(
+        "v",
+        "crm",
+        [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
+        { silent = true, buffer = bufnr, desc = "extract method" }
+      )
+      vim.keymap.set("n", "crc", jdtls.extract_constant, { silent = true, buffer = bufnr, desc = "extract constant" })
+
       -- local create_command = vim.api.nvim_buf_create_user_command
       -- create_command(bufnr, "W", require("me.lsp.ext").remove_unused_imports, {
       --   nargs = 0,

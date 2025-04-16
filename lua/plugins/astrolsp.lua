@@ -96,7 +96,10 @@ return {
     -- A custom `on_attach` function to be run after the default `on_attach` function
     -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
     on_attach = function(client, bufnr)
-      print "On Attach was called"
+      vim.notify(
+        "AstroLSP - On Attach was called (client: " .. client.name .. ", Buffer: " .. bufnr .. ")",
+        vim.log.levels.INFO
+      )
       -- this would disable semanticTokensProvider for all clients
       -- client.server_capabilities.semanticTokensProvider = nil
     end,
