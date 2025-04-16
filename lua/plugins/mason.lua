@@ -29,7 +29,7 @@ return {
     -- overrides `require("mason-nvim-dap").setup(...)`
     opts = {
       ensure_installed = {
-        "python",
+        -- "python",
         -- add more arguments for adding more debuggers
       },
     },
