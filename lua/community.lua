@@ -8,5 +8,6 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.java" },
   { import = "astrocommunity.pack.ps1" },
+  { import = "astrocommunity.motion.mini-move" },
   -- import/override with your plugins folder
 }
