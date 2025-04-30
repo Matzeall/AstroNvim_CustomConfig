@@ -9,5 +9,6 @@ return {
   { import = "astrocommunity.pack.java" },
   { import = "astrocommunity.pack.ps1" },
   { import = "astrocommunity.motion.mini-move" },
+  { import = "astrocommunity.recipes.picker-lsp-mappings" },
   -- import/override with your plugins folder
 }
