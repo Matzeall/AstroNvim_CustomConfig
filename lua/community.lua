@@ -20,5 +20,6 @@ return {
   { import = "astrocommunity.recipes.neo-tree-dark" },
   { import = "astrocommunity.editing-support.cutlass-nvim" }, -- has broken counter: 1
   { import = "astrocommunity.editing-support.nvim-regexplainer" },
-  { import = "astrocommunity.indent.snacks-indent-hlchunk" },
+  { import = "astrocommunity.indent.snacks-indent-hlchunk" }, -- shows indentation scope
+  { import = "astrocommunity.search.nvim-hlslens" }, -- shows additional /search information
 }
