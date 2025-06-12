@@ -28,7 +28,7 @@ return {
     options = {
       opt = { -- configure vim.opt options
         -- configure font
-        guifont = "IosevkaTermSlabNFM Nerd Font:h14", -- TODO: package font with repo
+        guifont = "IosevkaTermSlab NFM:h14", -- TODO: package font with repo
         -- line spacing
         linespace = 0,
       },
