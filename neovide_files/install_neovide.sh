@@ -21,28 +21,43 @@ else
 fi
 
 # 2. Install neovide launcher script
-BIN_DIR="$HOME/.local/bin"
-LAUNCHER_SRC="$SCRIPT_DIR/neovide"
+BINARY_LOCATION="$SCRIPT_DIR/neovide"
 
 echo "Installing neovide launcher..."
-mkdir -p "$BIN_DIR"
-if [[ -f "$LAUNCHER_SRC" ]]; then
-    cp "$LAUNCHER_SRC" "$BIN_DIR/neovide"
-    chmod +x "$BIN_DIR/neovide"
+if [[ -f "$BINARY_LOCATION" ]]; then
+    # .profile based PATH changes only work for login shells
+    # BIN_DIR="$HOME/.local/bin"
+    # mkdir -p "$BIN_DIR"
+    # cp "$BINARY_LOCATION" "$BIN_DIR/neovide"
+    # chmod +x "$BIN_DIR/neovide"
+    #
+    # echo "Copied $BINARY_LOCATION to $BIN_DIR/neovide and made it executable."
 
-    if [[ -f "$HOME/.profile" ]]; then # resource to make neovide immediatly available
-        source "$HOME/.profile"
+    # ADDING BINARY PATH TO BASHRC -> available in all bashs terminals
+    BASHRC="$HOME/.bashrc"
+    EXPORT_LINE="export PATH=\"${SCRIPT_DIR}:\$PATH\""
+
+    # Check if the exact export line is already present
+    if grep -Fxq "$EXPORT_LINE" "$BASHRC"; then
+        echo "✔ '$BINARY_LOCATION' is already in your PATH (in $BASHRC). No changes made."
+        exit 0
     fi
-    echo "Copied $LAUNCHER_SRC to $BIN_DIR/neovide and made it executable."
+
+    # Append the export line
+    {
+        echo ""
+        echo "# Added by install_neovide.sh from https://github.com/Matzeall/AstroNvim_CustomConfig on $(date)"
+        echo "$EXPORT_LINE"
+    } >>"$BASHRC"
+
+    echo "✔ Appended PATH entry to $BASHRC"
+    echo "    $EXPORT_LINE"
+    echo ""
+    echo "Now run this to pick up changes in your current session:"
+    echo "  source \"$BASHRC\""
 else
-    echo "Error: $LAUNCHER_SRC not found." >&2
+    echo "Error: $BINARY_LOCATION not found." >&2
     exit 1
 fi
-
-echo
-echo
-echo "Ensure that $BIN_DIR is in your PATH. (usually in ~/.profile)"
-echo "-> depending on your setup neovide should be available in all future terminals now or in any case after a restart)"
-echo "Additionally the neovide command should also be available in current shell now. If it didn't, do: source ~/.profile yourself"
 
 exit 0

@@ -8,8 +8,9 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.java" },
   { import = "astrocommunity.pack.ps1" },
+  { import = "astrocommunity.pack.bash" }, -- requires npm
   { import = "astrocommunity.pack.rust" },
-  -- { import = "astrocommunity.pack.markdown" }, // prettierd error & not really necessary
+  { import = "astrocommunity.pack.markdown" }, -- requires npm
   { import = "astrocommunity.markdown-and-latex.markview-nvim" },
   { import = "astrocommunity.motion.mini-move" }, -- alt +j,k line moves
   { import = "astrocommunity.recipes.picker-lsp-mappings" }, -- snacks.picker for lsp requests (references ...)
