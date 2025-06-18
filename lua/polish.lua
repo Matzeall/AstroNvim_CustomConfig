@@ -11,6 +11,18 @@ vim.keymap.set("n", "<C-#>", '<Cmd>execute v:count . "ToggleTerm"<CR>', { desc =
 vim.keymap.set("t", "<C-#>", "<Cmd>ToggleTerm<CR>", { desc = "Toggle terminal", silent = true })
 vim.keymap.set("i", "<C-#>", "<Esc><Cmd>ToggleTerm<CR>", { desc = "Toggle terminal", silent = true })
 
+-- in-terminal motions
+function _G.set_terminal_keymaps()
+  vim.notify "setup terminal mappings"
+  local opts = { buffer = 0 }
+  vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+  -- vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+  vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
+end
+
+-- if you only want these mappings for toggle term use term://*toggleterm#* instead
+vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
+
 -- INFO: on windows control which terminal is used by toggleterm
 if vim.fn.has "win32" == 1 or vim.fn.has "win64" == 1 then
   local shell = "bash" -- bash directly from PATH
