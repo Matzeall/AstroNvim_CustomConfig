@@ -3,13 +3,14 @@
 -- fit in the normal config locations above can go here
 -- INFO: change toggleterm default mappings
 --
--- <C-'> -> <C-#>
+-- <C-'> -> <M-#>
 for _, m in ipairs { "n", "t", "i" } do
   pcall(vim.keymap.del, m, [[<C-'>]])
 end
-vim.keymap.set("n", "<C-#>", '<Cmd>execute v:count . "ToggleTerm"<CR>', { desc = "Toggle terminal", silent = true })
-vim.keymap.set("t", "<C-#>", "<Cmd>ToggleTerm<CR>", { desc = "Toggle terminal", silent = true })
-vim.keymap.set("i", "<C-#>", "<Esc><Cmd>ToggleTerm<CR>", { desc = "Toggle terminal", silent = true })
+-- as opposed to ctrl-based bindings, alt work in any terminal (ctrl is sometimes consumed with non-letter keys)
+vim.keymap.set("n", "<M-#>", '<Cmd>execute v:count . "ToggleTerm"<CR>', { desc = "Toggle terminal", silent = true })
+vim.keymap.set("t", "<M-#>", "<Cmd>ToggleTerm<CR>", { desc = "Toggle terminal", silent = true })
+vim.keymap.set("i", "<M-#>", "<Esc><Cmd>ToggleTerm<CR>", { desc = "Toggle terminal", silent = true })
 
 -- in-terminal motions
 function _G.set_terminal_keymaps()
