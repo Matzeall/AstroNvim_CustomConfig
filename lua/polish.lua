@@ -86,3 +86,24 @@ vim.api.nvim_create_autocmd("FileChangedShellPost", {
     vim.notify("File changed on disk. Buffer reloaded.", vim.log.levels.WARN, { title = "AutoReload" })
   end,
 })
+
+-- INFO: Screenkey plugin
+vim.keymap.set("n", "<Leader>uK", "<Cmd>Screenkey toggle<CR>", { desc = "Toggle Screenkey display", silent = true })
+require("screenkey").setup {
+  win_opts = {
+    relative = "editor",
+    width = 37,
+    height = 1,
+    border = "single",
+    title = "Pressed Keys",
+    style = "minimal",
+  },
+  compress_after = 3, -- same characters, not seconds
+  clear_after = 3, -- seconds
+  disable = {
+    filetypes = {},
+    buftypes = { "terminal" },
+  },
+  group_mappings = true,
+}
+require("screenkey").toggle() -- on by default

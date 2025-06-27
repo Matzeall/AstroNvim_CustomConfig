@@ -97,4 +97,9 @@ return {
       },
     },
   },
+  {
+    "NStefan002/screenkey.nvim",
+    lazy = false,
+    version = "v2.4.2", -- or branch = "main", to use the latest commit
+  },
 }
