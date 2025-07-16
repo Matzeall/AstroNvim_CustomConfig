@@ -23,4 +23,6 @@ return {
   { import = "astrocommunity.editing-support.nvim-regexplainer" },
   { import = "astrocommunity.indent.snacks-indent-hlchunk" }, -- shows indentation scope
   { import = "astrocommunity.search.nvim-hlslens" }, -- shows additional /search information
+  { import = "astrocommunity.git.neogit" },
+  { import = "astrocommunity.git.gitgraph-nvim" },
 }
