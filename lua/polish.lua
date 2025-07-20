@@ -21,7 +21,25 @@ function _G.set_terminal_keymaps()
   vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
 end
 
--- if you only want these mappings for toggle term use term://*toggleterm#* instead
+function _G.setup_aliases(ev)
+  local chan = vim.b[ev.buf].terminal_job_id
+  if not chan then return end
+
+  -- send all aliases
+  local aliases = {
+    "alias ll='ls -alFh'",
+  }
+
+  for _, cmd in ipairs(aliases) do
+    -- add the \n so the shell executes it immediately
+    vim.fn.chansend(chan, cmd .. "\n")
+  end
+end
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  callback = _G.setup_aliases,
+})
 vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
 
 -- INFO: on windows control which terminal is used by toggleterm
