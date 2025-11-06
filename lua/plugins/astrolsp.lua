@@ -14,6 +14,26 @@ return {
       inlay_hints = true, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
+
+    defaults = {
+      signature_help = {
+        border = "rounded",
+        title = " Signature Info  ", -- doesn't work
+        title_pos = "center",
+        anchor_bias = "above",
+      },
+      hover = {
+        -- border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
+        -- border = { "▛", "▀", "▜", "▐", "▟", "▄", "▙", "▌" },
+        -- border = { "╒", "═", "╕", "│", "╛", "═", "╘", "│" },
+        -- border = { "█", "▀", "█", "█", "█", "▄", "█", "█" },
+        -- border = { "▛", "▔", "▜", "▕", "▟", "▁", "▙", "▎" },
+        border = "bold", -- "bold" "double" "none" "rounded" "solid"
+        title = " Info  ",
+        title_pos = "center",
+        anchor_bias = "above",
+      },
+    },
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save
@@ -96,10 +116,10 @@ return {
     -- A custom `on_attach` function to be run after the default `on_attach` function
     -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
     on_attach = function(client, bufnr)
-      vim.notify(
-        "AstroLSP - On Attach was called (client: " .. client.name .. ", Buffer: " .. bufnr .. ")",
-        vim.log.levels.INFO
-      )
+      -- vim.notify(
+      --   "AstroLSP - On Attach was called (client: " .. client.name .. ", Buffer: " .. bufnr .. ")",
+      --   vim.log.levels.DEBUG
+      -- )
       -- this would disable semanticTokensProvider for all clients
       -- client.server_capabilities.semanticTokensProvider = nil
     end,
