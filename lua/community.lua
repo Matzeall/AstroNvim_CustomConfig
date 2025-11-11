@@ -23,4 +23,6 @@ return {
   { import = "astrocommunity.git.neogit" },
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.git.gitgraph-nvim" },
+  { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
+  { import = "astrocommunity.debugging.persistent-breakpoints-nvim" },
 }
