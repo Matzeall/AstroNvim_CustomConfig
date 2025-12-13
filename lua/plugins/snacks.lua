@@ -1,5 +1,3 @@
-local get_icon = require("astroui").get_icon
-
 ---@type LazySpec
 return {
   "folke/snacks.nvim",
@@ -85,13 +83,13 @@ return {
       -- customize dashboard options
       preset = {
         keys = {
-          { key = "n", action = "<Leader>n", icon = get_icon("FileNew", 0, true), desc = "New File  " },
-          { key = "f", action = "<Leader>ff", icon = get_icon("Search", 0, true), desc = "Find File  " },
-          { key = "o", action = "<Leader>fo", icon = get_icon("DefaultFile", 0, true), desc = "Recents  " },
-          { key = "w", action = "<Leader>fw", icon = get_icon("WordFile", 0, true), desc = "Find Word  " },
-          { key = "'", action = "<Leader>f'", icon = get_icon("Bookmarks", 0, true), desc = "Bookmarks  " },
-          { key = "s", action = "<Leader>Sl", icon = get_icon("Refresh", 0, true), desc = "Last Session  " },
-          { key = "S", action = "<Leader>SL", icon = get_icon("Refresh", 0, true), desc = "Last Directory Session  " },
+          { key = "n", action = "<Leader>n", icon = "", desc = "New File  " },
+          { key = "f", action = "<Leader>ff", icon = "", desc = "Find File  " },
+          { key = "w", action = "<Leader>fw", icon = "", desc = "Find Word  " },
+          { key = "'", action = "<Leader>f'", icon = "󰈙", desc = "Bookmarks  " },
+          { key = "s", action = "<Leader>Sl", icon = "󰑐", desc = "Last Session  " },
+          { key = "S", action = "<Leader>SL", icon = "󰑐", desc = "Last Directory Session  " },
+          { key = "L", action = ":Leet", icon = "󰙏", desc = "Start LeetCode" },
         },
 
         header = table.concat({

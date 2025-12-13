@@ -67,6 +67,7 @@ return {
         Selected = "❯",
         Spellcheck = "󰓆",
         TabClose = "󰅙",
+        Refresh = "󰑐",
       },
       -- modify variables used by heirline but not defined in the setup call directly
       status = {
