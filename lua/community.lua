@@ -14,7 +14,6 @@ return {
   { import = "astrocommunity.motion.mini-move" }, -- alt +j,k line moves
   { import = "astrocommunity.recipes.picker-lsp-mappings" }, -- snacks.picker for lsp requests (references ...)
   -- { import = "astrocommunity.recipes.heirline-tabline-buffer-number" }, -- doesn't work but would be cool if
-  -- { import = "astrocommunity.recipes.heirline-nvchad-statusline" }, -- replaced by slightly adjusted version in AstroUI plugin
   { import = "astrocommunity.recipes.picker-nvchad-theme" },
   { import = "astrocommunity.recipes.neo-tree-dark" },
   { import = "astrocommunity.editing-support.nvim-regexplainer" },

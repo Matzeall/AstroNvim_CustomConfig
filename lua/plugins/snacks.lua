@@ -85,27 +85,23 @@ return {
         keys = {
           { key = "n", action = "<Leader>n", icon = "", desc = "New File  " },
           { key = "f", action = "<Leader>ff", icon = "", desc = "Find File  " },
+          { key = "t", action = ":Neotree float", icon = "󰙅", desc = "Open Filetree  " },
           { key = "w", action = "<Leader>fw", icon = "", desc = "Find Word  " },
           { key = "'", action = "<Leader>f'", icon = "󰈙", desc = "Bookmarks  " },
-          { key = "s", action = "<Leader>Sl", icon = "󰑐", desc = "Last Session  " },
-          { key = "S", action = "<Leader>SL", icon = "󰑐", desc = "Last Directory Session  " },
-          { key = "L", action = ":Leet", icon = "󰙏", desc = "Start LeetCode" },
+          -- { key = "s", action = "<Leader>Sl", icon = "󰑐", desc = "Last Session  " },
+          { key = "s", action = "<Leader>SL", icon = "󰑐", desc = "Last Directory Session  " },
+          { key = "L", action = ":Leet", icon = "󰙏", desc = "Start LeetCode  " },
         },
 
-        header = table.concat({
-          " █████  ███████ ████████ ██████   ██████ ",
-          "██   ██ ██         ██    ██   ██ ██    ██",
-          "███████ ███████    ██    ██████  ██    ██",
-          "██   ██      ██    ██    ██   ██ ██    ██",
-          "██   ██ ███████    ██    ██   ██  ██████ ",
-          "",
-          "███    ██ ██    ██ ██ ███    ███",
-          "████   ██ ██    ██ ██ ████  ████",
-          "██ ██  ██ ██    ██ ██ ██ ████ ██",
-          "██  ██ ██  ██  ██  ██ ██  ██  ██",
-          "██   ████   ████   ██ ██      ██",
-          "                     Config by Matthias Allner",
-        }, "\n"),
+        header = [[
+
+███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
+████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
+██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
+██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
+██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
+╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
+                          Config by Matthias.]],
       },
     },
 

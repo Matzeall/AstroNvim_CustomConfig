@@ -14,6 +14,7 @@ return {
 
         -- install formatters
         "stylua",
+        "prettierd",
 
         -- install debuggers
         -- "debugpy", -- excuse me?? why was there a python debugger enabled by default? Even the python lsp is disabled by default

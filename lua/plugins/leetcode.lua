@@ -9,7 +9,7 @@ return {
   },
   cmd = "Leet",
   opts = {
-    lang = "rust",
+    lang = "csharp",
     ---@type table<string, boolean>
     plugins = {
       non_standalone = true,

@@ -1,4 +1,5 @@
 ---
+name: neovim
 base: lua51
 
 globals:
@@ -6,5 +7,5 @@ globals:
     any: true
   jit:
     any: true
-Snacks:
-  any: true
+  Snacks:
+    any: true

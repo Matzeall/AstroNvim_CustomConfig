@@ -9,7 +9,7 @@ return {
   opts = {
     -- OPTIONAL: Daily tip mode (default: 1)
     -- Note: Set to 0 when using lazy = true, or use Option 2 below
-    daily_tip = 1, -- 0 = off, 1 = once per day, 2 = every startup
+    daily_tip = 0, -- 0 = off, 1 = once per day, 2 = every startup
     bookmark_symbol = "🌟 ",
     show_daily_tip_footer = false,
   },
