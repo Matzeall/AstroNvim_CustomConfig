@@ -39,6 +39,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- INFO: disable the continuation of comments through newline-commands o/O
+vim.opt.formatoptions = vim.opt.formatoptions - { "o" }
 vim.api.nvim_create_autocmd(
   "BufEnter",
   { callback = function() vim.opt.formatoptions = vim.opt.formatoptions - { "o" } end }

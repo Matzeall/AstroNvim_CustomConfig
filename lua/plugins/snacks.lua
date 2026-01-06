@@ -80,7 +80,8 @@ return {
 
   opts = {
     dashboard = {
-      -- customize dashboard options
+      -- customize dashboard options (there is so much more that I could do on the homepage)
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/dashboard.md
       preset = {
         keys = {
           { key = "n", action = "<Leader>n", icon = "", desc = "New File  " },

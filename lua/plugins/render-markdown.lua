@@ -18,6 +18,7 @@ return {
     },
   },
   opts = {
+    latex = { enabled = false },
     checkbox = {
       enabled = false,
     },
