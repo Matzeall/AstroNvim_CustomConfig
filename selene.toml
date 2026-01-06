@@ -1,5 +1,8 @@
 std = "neovim"
 
+# this file uses goto labels, they are not yet supported by selene (but the lua code still works)
+exclude = ["lua/polish/config_version.lua"]
+
 [rules]
 global_usage = "allow"
 if_same_then_else = "allow"
