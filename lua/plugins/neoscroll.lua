@@ -7,10 +7,10 @@ return {
     }
     vim.o.scrolloff = 8 -- When moving the cursor to the top or bottom of the window, it keeps 8 lines of margin, instead of letting the cursor "stick" to the window edges.
     vim.o.sidescrolloff = 14
-    vim.o.scroll = 8
+    vim.o.scroll = 10
 
     local function set_fixed_scroll()
-      local scroll_distance = 8
+      local scroll_distance = 10
 
       -- set the global default
       -- silent because this can error annoyingly when buffer is smaller than scroll_distance and I don't want to check
