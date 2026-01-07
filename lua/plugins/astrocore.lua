@@ -112,6 +112,9 @@ return {
         [">B"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["<B"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
+        ["<Leader>e"] = { ":Neotree toggle left<CR>", desc = "Toggle Explorer (left)" },
+        ["<Leader>o"] = { ":Neotree toggle float<CR>", desc = "Toggle Explorer (float)" },
+
         ["<Leader>fb"] = {
           function()
             require("snacks").picker.buffers {
@@ -138,13 +141,12 @@ return {
         },
 
         -- INFO: pure Menu Names
-        ["<leader>ud"] = { desc = "󰒡 Diagnostics" },
-        ["<leader>T"] = { desc = "✔ TODO" },
-        ["<leader>z"] = { desc = " Under Cursor Ops" },
+        ["<Leader>ud"] = { desc = "󰒡 Diagnostics" },
+        ["<Leader>T"] = { desc = "✔ TODO" },
+        ["<Leader>z"] = { desc = " Under Cursor Ops" },
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
-        ["<Leader>o"] = false, -- remove this neo-tree mapping
         ["<Leader>S."] = false, -- remapped to <Leader>SL
       },
     },
