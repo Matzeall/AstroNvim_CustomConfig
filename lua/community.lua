@@ -11,6 +11,8 @@ return {
   { import = "astrocommunity.pack.bash" }, -- requires npm
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.markdown" }, -- requires npm
+  { import = "astrocommunity.pack.typescript-all-in-one" },
+  { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.motion.mini-move" }, -- alt +j,k line moves
   { import = "astrocommunity.recipes.picker-lsp-mappings" }, -- snacks.picker for lsp requests (references ...)
   -- { import = "astrocommunity.recipes.heirline-tabline-buffer-number" }, -- doesn't work but would be cool if
