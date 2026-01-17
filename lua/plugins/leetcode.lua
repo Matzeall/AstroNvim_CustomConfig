@@ -74,6 +74,7 @@ return {
   </PropertyGroup>
   <ItemGroup>
     <!-- only include the current problem file -->
+    <Compile Remove="*.cs" />
     <Compile Include="%s" />
   </ItemGroup>
 </Project>
