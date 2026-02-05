@@ -1,3 +1,6 @@
+-- only setup plugin when dotnet is enabled
+if vim.fn.executable "dotnet" == 0 then return {} end
+
 -- requires dotnet (must be the APT version)
 return {
   "GustavEikaas/easy-dotnet.nvim",
