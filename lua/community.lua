@@ -10,6 +10,8 @@ return {
   { import = "astrocommunity.pack.ps1" },
   { import = "astrocommunity.pack.bash" }, -- requires npm
   { import = "astrocommunity.pack.rust" },
+  { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.cmake" },
   { import = "astrocommunity.pack.markdown" }, -- requires npm
   { import = "astrocommunity.pack.typescript-all-in-one" },
   { import = "astrocommunity.pack.html-css" },
