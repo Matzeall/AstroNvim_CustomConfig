@@ -21,6 +21,7 @@ return {
   { import = "astrocommunity.recipes.picker-nvchad-theme" },
   { import = "astrocommunity.recipes.neo-tree-dark" },
   { import = "astrocommunity.editing-support.nvim-regexplainer" },
+  { import = "astrocommunity.code-runner.overseer-nvim" },
   { import = "astrocommunity.indent.snacks-indent-hlchunk" }, -- shows indentation scope
   { import = "astrocommunity.search.nvim-hlslens" }, -- shows additional /search information
   { import = "astrocommunity.git.neogit" },

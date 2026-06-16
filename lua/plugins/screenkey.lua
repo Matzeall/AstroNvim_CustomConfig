@@ -21,7 +21,7 @@ return {
   },
   config = function(_, opts)
     require("screenkey").setup(opts) -- apply non-default options
-    require("screenkey").toggle() -- on by default
+    -- require("screenkey").toggle() -- on by default
     vim.keymap.set("n", "<Leader>uK", "<Cmd>Screenkey toggle<CR>", { desc = "Toggle Screenkey display", silent = true })
   end,
 }
