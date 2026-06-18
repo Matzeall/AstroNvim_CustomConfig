@@ -8,7 +8,7 @@ return {
     ---@type AstroUIOpts
     opts = {
       -- change colorscheme
-      colorscheme = "astrodark",
+      -- colorscheme = "astrodark",
       -- Icons can be configured throughout the interface
       icons = {
         VimIcon = "",
@@ -74,7 +74,7 @@ return {
         -- define the separators between each section
         separators = {
           left = { "", "" }, -- separator for the left side of the statusline
-          right = { "", "" }, -- separator for the right side of the statusline
+          right = { "" }, -- separator for the right side of the statusline
           tab = { "", "" },
         },
         -- add new colors that can be used by heirline
@@ -86,8 +86,8 @@ return {
           hl.git_added = comment_fg
           hl.git_changed = comment_fg
           hl.git_removed = comment_fg
-          hl.blank_bg = get_hlgroup("Folded").fg
-          hl.file_info_bg = get_hlgroup("Visual").bg
+          hl.blank_bg = get_hlgroup("StatusLine").bg
+          hl.file_info_bg = get_hlgroup("WinSeparator").bg
           hl.nav_icon_bg = get_hlgroup("String").fg
           hl.nav_fg = hl.nav_icon_bg
           hl.folder_icon_bg = get_hlgroup("Error").fg
@@ -98,7 +98,7 @@ return {
         },
         icon_highlights = {
           file_icon = {
-            statusline = false,
+            statusline = true,
           },
         },
       },
@@ -137,6 +137,7 @@ return {
             -- set the color of the surrounding based on the current mode using astronvim.utils.status module
             color = function() return { main = status.hl.mode_bg(), right = "blank_bg" } end,
           },
+          padding = { right = 1 },
         },
         -- we want an empty space here so we can use the component builder to make a new section with just an empty string
         status.component.builder {
@@ -185,14 +186,17 @@ return {
         -- fill the rest of the statusline
         -- the elements after this will appear on the right of the statusline
         status.component.fill(),
+
         -- add a component for the current diagnostics if it exists and use the right separator for the section
         status.component.diagnostics { surround = { separator = "right" }, padding = { right = 1 } },
+
         -- add a component to display LSP clients, disable showing LSP progress, and use the right separator
         status.component.lsp {
           lsp_progress = false,
           padding = { right = 1 },
-          surround = { separator = "right" },
+          surround = { separator = "right", color = { main = "bg" } },
         },
+
         -- NvChad has some nice icons to go along with information, so we can create a parent component to do this
         -- all of the children of this table will be treated together as a single component
         {
@@ -201,14 +205,15 @@ return {
             -- define a simple component where the provider is just a folder icon
             status.component.builder {
               -- astronvim.get_icon gets the user interface icon for a closed folder with a space after it
-              { provider = require("astroui").get_icon "FolderClosed" },
+              { provider = "" },
               -- add padding after icon
-              padding = { right = 1 },
+              padding = { right = 0 },
               -- set the foreground color to be used for the icon
-              hl = { fg = "bg" },
+              hl = { fg = "fg", bg = "folder_icon_bg" },
               -- use the right separator and define the background color
-              surround = { separator = "right", color = "folder_icon_bg" },
+              surround = { separator = "right", color = { main = "file_info_bg" } },
             },
+
             -- add a file information component and only show the current working directory name
             status.component.file_info {
               -- we only want filename to be used and we can change the fname

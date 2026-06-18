@@ -1,3 +1,6 @@
+-- DISABLED
+if true then return {} end
+
 return {
   "saxon1964/neovim-tips",
   version = "*", -- Only update on tagged releases

@@ -23,7 +23,7 @@ return {
     end
 
     local cmd_group = vim.api.nvim_create_augroup("FixedScroll", { clear = true })
-    vim.api.nvim_create_autocmd({ "VimResized", "WinResized", "VimEnter" }, {
+    vim.api.nvim_create_autocmd({ "VimResized", "WinResized", "VimEnter", "BufEnter" }, {
       group = cmd_group,
       desc = "Keep 'scroll' fixed at 8 on resize and at startup",
       callback = function()
