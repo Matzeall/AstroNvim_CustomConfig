@@ -82,6 +82,9 @@ return {
           local get_hlgroup = require("astroui").get_hlgroup
           -- use helper function to get highlight group properties
           local comment_fg = get_hlgroup("Comment").fg
+          hl.mode_normal_bg = "#d59515"
+          hl.mode_insert_bg = get_hlgroup("GruvboxGreen").fg
+          hl.mode_visual_bg = get_hlgroup("GruvboxPurple").fg
           hl.git_branch_fg = comment_fg
           hl.git_added = comment_fg
           hl.git_changed = comment_fg
@@ -135,7 +138,18 @@ return {
             -- it's a left element, so use the left separator
             separator = "left",
             -- set the color of the surrounding based on the current mode using astronvim.utils.status module
-            color = function() return { main = status.hl.mode_bg(), right = "blank_bg" } end,
+            color = function()
+              local m = vim.fn.mode(0) -- "n","i","v","V",""
+              if m == "i" then
+                return { main = "mode_insert_bg", right = "blank_bg" }
+              elseif m == "v" or m == "V" or m == "\22" then -- visual/visual-line/block
+                return { main = "mode_visual_bg", right = "blank_bg" }
+              elseif m == "n" then -- normal mode
+                return { main = "mode_normal_bg", right = "blank_bg" }
+              else -- anything else not mapped
+                return status.hl.mode_bg()
+              end
+            end,
           },
           padding = { right = 1 },
         },
