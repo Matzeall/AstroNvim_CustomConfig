@@ -34,6 +34,12 @@ local function parse_porcelain_branch(lines)
 
   return ahead, behind, has_upstream, has_local_changes
 end
+local function is_man_pager_instance()
+  for _, arg in ipairs(vim.v.argv) do
+    if arg == "+Man!" then return true end
+  end
+  return false
+end
 
 -- run git fetch first, then run git status --porcelain=2 --branch
 function M.check_repo(repo, opts)
@@ -43,7 +49,7 @@ function M.check_repo(repo, opts)
   local min_behind = opts.min_behind or 1
   local min_ahead = opts.min_ahead or 1
 
-  if vim.fn.isdirectory(repo .. "/.git") == 0 then return end
+  if vim.fn.isdirectory(repo .. "/.git") == 0 or is_man_pager_instance() then return end
 
   -- start fetch (argv-style, cross-platform safe)
   local fetch_cmd = { "git", "-C", repo, "fetch", "--quiet" }
